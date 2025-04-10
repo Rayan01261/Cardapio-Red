@@ -32,7 +32,7 @@ class Pessoa(AbstractUser):
 class Administrador_sistema(Pessoa):
     ativo = models.BooleanField(default=False)
 
-class Garçom(Pessoa):  
+class Garcom(Pessoa):  
      
     avaliacao = models.IntegerField()
     qtd_vendas = models.IntegerField()

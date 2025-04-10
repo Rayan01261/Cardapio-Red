@@ -18,3 +18,18 @@ https://docs.djangoproject.com/en/5.1/intro/tutorial01/
 
 ## Projeto Paralelo (para referencia)
 https://github.com/Rayan01261/SOSTI
+
+
+# Comando relevantes
+
+## iniciar a api
+
+`python manage.py runserver`
+
+## iniciar o front end
+
+`npm run dev`
+
+# comando de instalação de bibiotecas necessarias
+
+`pip install djangorestframework`

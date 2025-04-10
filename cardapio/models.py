@@ -1,7 +1,7 @@
 from django.db import models
 
 class Item(models.Model):
-    valor = models.DecimalField(decimal_places=2)
+    valor = models.DecimalField(decimal_places=2, max_digits=5)
     nome = models.CharField(max_length=20)
     descricao = models.CharField(max_length=100)
 

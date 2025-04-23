@@ -10,3 +10,5 @@ for model in app_models:
         admin.site.register(model)
     except AlreadyRegistered:
         pass
+
+

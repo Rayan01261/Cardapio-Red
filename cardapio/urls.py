@@ -5,6 +5,7 @@ from .views import ComandaViewSet
 
 router = DefaultRouter()
 router.register(r'comandas', ComandaViewSet)
+router.register(r'mesas', ComandaViewSet, basename='mesa')
 
 
 urlpatterns = router.urls

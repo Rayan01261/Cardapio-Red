@@ -1,6 +1,6 @@
 // src/router/index.js
 import { createRouter, createWebHistory } from 'vue-router'
-import TestPage from '@/components/test_page.vue'
+import TestPage from '@/components/Home.vue'
 
 
 const routes = [
@@ -9,6 +9,11 @@ const routes = [
     name: 'home',
     component: TestPage,
   },
+  {
+    path: '/mesas',
+    name: 'mesas',
+    component: () => import('@/components/Mesas.vue'),
+  }
 ]
 
 const router = createRouter({

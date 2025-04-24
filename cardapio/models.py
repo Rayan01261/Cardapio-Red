@@ -32,7 +32,7 @@ class Pessoa(AbstractUser):
     
     idade = models.IntegerField(null=True, blank=True)
     cpf = models.CharField(max_length=15, unique=True)
-    data_nascimento = models.DateField()
+    data_nascimento = models.DateField(null=True)
     telefone = models.CharField(max_length=15, validators=[
         RegexValidator(
             regex=r'^\+?1?\d{9,15}$',

@@ -16,9 +16,9 @@
     })
 
     const mesas = ref([])
-    axios.get('localhost:8000/mesas')
+    axios.get('localhost/mesas')
         .then(response => {
-            mesas.value = response.data
+            mesas.value = console.log(response.data)
         })
         .catch(error => {
             console.error(error)

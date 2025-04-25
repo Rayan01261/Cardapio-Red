@@ -1,36 +1,51 @@
 <template>
     <v-container class="fill-screen" fluid>
-        <v-card>
-        <v-card-title>Mesas</v-card-title>
-        </v-card>
+        <div class="Mesa-icon" v-for="mesa in mesas" :key="mesa.id">
+            <v-btn class="btn"><v-col>Mesa {{ mesa.id }}</v-col></v-btn>
+        </div>
     </v-container>
 </template>
   
 <script setup>
-    import { ref } from 'vue'
-    import { defineOptions } from 'vue'
-    import axios from 'axios'
+    import { ref, onMounted } from 'vue'
+    import api from '@/api'
 
     defineOptions({
     name: 'HomePage',
     })
 
     const mesas = ref([])
-    axios.get('localhost/mesas')
-        .then(response => {
-            mesas.value = console.log(response.data)
-        })
-        .catch(error => {
-            console.error(error)
-        })
+
+    const fetchMesas = async () => {
+        try {
+            const res = await api.get('/api/mesas')
+            if (Array.isArray(res.data)) {
+            mesas.value = res.data
+            } else {
+            console.warn('Formato de dados inesperado:', res.data)
+            }
+        } catch (err) {
+            console.error(err)
+        }
+    }
+
+    onMounted(fetchMesas)
 </script>
+
   
 <style scoped>
     .fill-screen {
     height: 100vh;
     display: flex;
     justify-content: center;
+    flex-direction: column;
     align-items: center;
     }
+    .btn{
+        width: 75px;
+        height: 50px;
+        margin: 10px;
+    } 
+
 </style>
   

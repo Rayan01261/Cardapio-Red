@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Item, Cardapio, Mesa, Comanda
+from .models import Item, Cardapio, Mesa, Categoria
 
 class ItemSerializer(serializers.ModelSerializer):
     class Meta:
@@ -20,9 +20,9 @@ class MesaSerializer(serializers.ModelSerializer):
         model = Mesa
         fields = '__all__'
 
-class ComandaSerializer(serializers.ModelSerializer):
-    mesa = MesaSerializer()
 
+class CategoriaSerializer(serializers.ModelSerializer):
+    
     class Meta:
-        model = Comanda
+        model = Categoria
         fields = '__all__'

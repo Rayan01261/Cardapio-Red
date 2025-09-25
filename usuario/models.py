@@ -6,7 +6,7 @@ from cardapio.models import Mesa
 
 class Usuario(AbstractUser):
     
-    mome_completo = models.CharField(max_length=150, verbose_name="Nome")
+    nome_completo = models.CharField(max_length=150, verbose_name="Nome")
     idade = models.IntegerField(verbose_name="Idade")
     cpf = models.CharField(max_length=15, unique=True, verbose_name="CPF")
     data_nascimento = models.DateField(null=True, verbose_name="Data de nascimento")
@@ -19,18 +19,20 @@ class Usuario(AbstractUser):
         verbose_name = 'Usuario'
         verbose_name_plural = 'Usuarios'
     
-    
+# Rever isso, pois não acho que precise desse atributo Ativo, talvez tenha algo interessante a se colocar.
 class Gerente(Usuario):
-    ativo = models.BooleanField(default=False)
     
     class Meta:
-        # db_table = "Gerente "
+        # db_table = "Gerente"
         # managed = True
         verbose_name = 'Gerente'
         verbose_name_plural = 'Gerentes'
 
 class Garcom(Usuario):
-    avaliacao_estrelas = models.IntegerField()
     qtd_vendas = models.IntegerField()
 
-
+    class Meta:
+        # db_table = "Gerente "
+        # managed = True
+        verbose_name = 'qtd_venda'
+        verbose_name_plural = 'qtd_vendas'

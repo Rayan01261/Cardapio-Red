@@ -6,7 +6,8 @@ class Item(models.Model):
     
     preço = models.DecimalField(decimal_places=2, max_digits=5)
     nome = models.CharField(max_length=20)
-    descricao = models.CharField(max_length=100)
+    # colocar pro BD ser NULL
+    descricao = models.CharField(blank=True, max_length=100)
 
     class Meta:
         # db_table = "Item"
@@ -14,7 +15,7 @@ class Item(models.Model):
         verbose_name = 'Item'
         verbose_name_plural = 'Items'
     
-     
+
 class Categoria(models.Model):
     
     nome_categoria = models.CharField(max_length=50)
@@ -35,6 +36,7 @@ class Cardapio(models.Model):
         # ordering = [""]
         verbose_name = 'Cardapio'
         verbose_name_plural = 'Cardapios'
+
 
 class Mesa(models.Model):
     cardapio = models.ForeignKey(Cardapio, on_delete=models.CASCADE)

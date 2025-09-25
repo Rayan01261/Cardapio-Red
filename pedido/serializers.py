@@ -7,7 +7,6 @@ class ComandaSerializer(serializers.ModelSerializer):
         model = Comanda
         fields = '__all__'
 
-
 class PedidoSerializer(serializers.ModelSerializer):
     class Meta:
         model = Pedido

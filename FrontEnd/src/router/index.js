@@ -14,6 +14,7 @@ const routes = [
     name: 'mesas',
     component: () => import('@/components/Mesas.vue'),
   }
+  
 ]
 
 const router = createRouter({

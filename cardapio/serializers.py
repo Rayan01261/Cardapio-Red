@@ -7,7 +7,7 @@ class ItemSerializer(serializers.ModelSerializer):
         fields = '__all__'
         
 class CategoriaSerializer(serializers.ModelSerializer):
-    
+    itens = ItemSerializer(many=True, read_only=True)
     class Meta:
         model = Categoria
         fields = '__all__'

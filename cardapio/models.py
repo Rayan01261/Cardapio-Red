@@ -2,13 +2,23 @@ from django.db import models
 from django.core.validators import RegexValidator
 from django.contrib.auth.models import AbstractUser
 
+class Categoria(models.Model):
+    
+    nome_categoria = models.CharField(max_length=50)
+    
+    class Meta:
+        # db_table = "Categoria"
+        # ordering = [""]
+        verbose_name = 'Categoria'
+        verbose_name_plural = 'Categorias'
+
 class Item(models.Model):
     
     preço = models.DecimalField(decimal_places=2, max_digits=5)
     nome = models.CharField(max_length=20)
     # colocar pro BD ser NULL
     descricao = models.CharField(blank=True, max_length=100)
-
+    categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE, related_name="itens")
     class Meta:
         # db_table = "Item"
         # ordering = [""]
@@ -16,16 +26,7 @@ class Item(models.Model):
         verbose_name_plural = 'Items'
     
 
-class Categoria(models.Model):
-    
-    nome_categoria = models.CharField(max_length=50)
-    item = models.ForeignKey(Item, on_delete=models.CASCADE)
-    
-    class Meta:
-        # db_table = "Categoria"
-        # ordering = [""]
-        verbose_name = 'Categoria'
-        verbose_name_plural = 'Categorias'
+
        
         
 class Cardapio(models.Model):

@@ -2,27 +2,43 @@
     <v-container class="fill-screen" fluid>
         <v-row>
             <v-col v-for="(mesa,index) in mesas" :key="index" cols="auto">
-                <v-card>
+                <v-card elevation="12" v-if="mesa.ocupada" color="error">
                     <v-card-title>Mesa {{ mesa.id }}</v-card-title>
-                    <v-card-text>
-                        PLACEHOLDER
-                        
-                    </v-card-text>
+                        <v-card-text>MESA OCUPADA</v-card-text>
+                    <v-card-actions>
+                        <v-btn @click="abrirCardapio(mesa)">Abrir Cardapio</v-btn>
+                    </v-card-actions>
+                </v-card>
+                <v-card elevation="12" v-else color="green">
+                    <v-card-title>Mesa {{ mesa.id }}</v-card-title>
+                       <v-card-text>MESA LIVRE</v-card-text>
+                       <v-card-actions>
+                            <v-btn @click="abrirCardapio(mesa)">Abrir Cardapio</v-btn>
+                        </v-card-actions>
                 </v-card>
             </v-col>
         </v-row>
     </v-container>
+
+    <Cardapio
+    :mesa="mesaSelecionada" 
+    :mostrar="modalAberto" 
+    @update:mostrar="modalAberto = $event" 
+    />
 </template>
   
 <script setup>
     import { ref, onMounted } from 'vue'
     import api from '@/api'
+    import Cardapio from './Cardapio.vue'
 
     defineOptions({
     name: 'HomePage',
     })
 
     const mesas = ref([])
+    const modalAberto = ref(false)
+    const mesaSelecionada = ref(null)
 
     const fetchMesas = async () => {
         try {
@@ -35,6 +51,11 @@
         } catch (err) {
             console.error(err)
         }
+    }
+
+    const abrirCardapio = mesa => {
+        mesaSelecionada.value = mesa
+        modalAberto.value = true
     }
 
     onMounted(fetchMesas)
@@ -53,7 +74,7 @@
         width: 75px;
         height: 50px;
         margin: 10px;
-    } 
+    }
 
 </style>
   

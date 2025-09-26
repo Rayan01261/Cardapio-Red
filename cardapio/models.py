@@ -39,7 +39,6 @@ class Cardapio(models.Model):
 
 
 class Mesa(models.Model):
-    cardapio = models.ForeignKey(Cardapio, on_delete=models.CASCADE)
     
     class Meta:
         # db_table = "Mesa"

@@ -5,9 +5,15 @@ class ItemSerializer(serializers.ModelSerializer):
     class Meta:
         model = Item
         fields = '__all__'
+        
+class CategoriaSerializer(serializers.ModelSerializer):
+    
+    class Meta:
+        model = Categoria
+        fields = '__all__'
 
 class CardapioSerializer(serializers.ModelSerializer):
-    itens = ItemSerializer(many=True)
+    Categoria = CategoriaSerializer(many=True)
 
     class Meta:
         model = Cardapio
@@ -21,8 +27,3 @@ class MesaSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 
-class CategoriaSerializer(serializers.ModelSerializer):
-    
-    class Meta:
-        model = Categoria
-        fields = '__all__'

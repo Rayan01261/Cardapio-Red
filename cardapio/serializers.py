@@ -20,7 +20,7 @@ class CardapioSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 class MesaSerializer(serializers.ModelSerializer):
-    cardapio = CardapioSerializer()
+    
 
     class Meta:
         model = Mesa

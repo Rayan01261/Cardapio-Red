@@ -1,8 +1,16 @@
 <template>
     <v-container class="fill-screen" fluid>
-        <div class="Mesa-icon" v-for="mesa in mesas" :key="mesa.id">
-            <v-btn class="btn"><v-col>Mesa {{ mesa.id }}</v-col></v-btn>
-        </div>
+        <v-row>
+            <v-col v-for="(mesa,index) in mesas" :key="index" cols="auto">
+                <v-card>
+                    <v-card-title>Mesa {{ mesa.id }}</v-card-title>
+                    <v-card-text>
+                        PLACEHOLDER
+                        
+                    </v-card-text>
+                </v-card>
+            </v-col>
+        </v-row>
     </v-container>
 </template>
   

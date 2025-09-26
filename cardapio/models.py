@@ -39,7 +39,7 @@ class Cardapio(models.Model):
 
 
 class Mesa(models.Model):
-    
+    ocupada = models.BooleanField(default=False)
     class Meta:
         # db_table = "Mesa"
         # ordering = [""]

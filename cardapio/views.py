@@ -7,6 +7,7 @@ class MesaViewSet(ModelViewSet):
     queryset = Mesa.objects.all()
     serializer_class = MesaSerializer
 
+
 class CardapioViewSet(ModelViewSet):
     queryset = Cardapio.objects.all()
     serializer_class = CardapioSerializer

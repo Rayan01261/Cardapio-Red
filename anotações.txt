@@ -25,7 +25,7 @@ python manage.py graph\_models              → Gera um diagrama dos modelos do 
 
 
 
-EXEMPLOS ENDPOINTs:
+
 
 
 INSTALAÇÕES:

@@ -1,5 +1,0 @@
-
-
-
-
-# python manage.py runserver

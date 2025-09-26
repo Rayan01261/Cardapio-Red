@@ -1,8 +1,6 @@
 from django.db import models
 from django.core.validators import RegexValidator
 from django.contrib.auth.models import AbstractUser
-from cardapio.models import Mesa
-
 
 class Usuario(AbstractUser):
     
@@ -34,5 +32,5 @@ class Garcom(Usuario):
     class Meta:
         # db_table = "Gerente "
         # managed = True
-        verbose_name = 'qtd_venda'
-        verbose_name_plural = 'qtd_vendas'
+        verbose_name = 'Garçom'
+        verbose_name_plural = 'Garçons'

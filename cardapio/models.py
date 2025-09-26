@@ -18,8 +18,8 @@ class Item(models.Model):
 
 class Categoria(models.Model):
     
-    nome_categoria = models.CharField(max_length=50)
     item = models.ForeignKey(Item, on_delete=models.CASCADE)
+    nome_categoria = models.CharField(max_length=50)
     
     class Meta:
         # db_table = "Categoria"
@@ -27,9 +27,9 @@ class Categoria(models.Model):
         verbose_name = 'Categoria'
         verbose_name_plural = 'Categorias'
        
-        
+   
 class Cardapio(models.Model):
-    Categoria = models.ManyToManyField(Categoria)
+    categoria = models.ManyToManyField(Categoria)
     
     class Meta:
         # db_table = "Cardapio"
@@ -38,7 +38,7 @@ class Cardapio(models.Model):
         verbose_name_plural = 'Cardapios'
 
 
-class Mesa(models.Model):
+class Mesa(Cardapio):
     cardapio = models.ForeignKey(Cardapio, on_delete=models.CASCADE)
     
     class Meta:

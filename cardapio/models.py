@@ -38,8 +38,7 @@ class Cardapio(models.Model):
         verbose_name_plural = 'Cardapios'
 
 
-class Mesa(Cardapio):
-    cardapio = models.ForeignKey(Cardapio, on_delete=models.CASCADE)
+class Mesa(models.Model):
     
     class Meta:
         # db_table = "Mesa"

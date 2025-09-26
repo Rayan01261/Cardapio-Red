@@ -3,10 +3,10 @@ from .models import Pedido, Comanda
 
 @admin.register(Comanda)
 class ComandaAdmin(admin.ModelAdmin):
-    list_display = ['mesa', 'total', 'sub_total', 'data_criacao']
-    search_fields = ['mesa']
+    list_display = ['total', 'sub_total', 'data_criacao']
+    search_fields = ['Pedido']
     
 @admin.register(Pedido)
 class PedidoAdmin(admin.ModelAdmin):
-    list_display = ['comanda', 'item', 'quantidade', 'data_criacao']
-    search_fields = ['comanda']
+    list_display = ['item','quantidade']
+    search_fields = ['item']

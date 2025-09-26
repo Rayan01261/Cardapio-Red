@@ -18,7 +18,7 @@
 
     const fetchMesas = async () => {
         try {
-            const res = await api.get('/api/mesas')
+            const res = await api.get('/api/mesa')
             if (Array.isArray(res.data)) {
             mesas.value = res.data
             } else {

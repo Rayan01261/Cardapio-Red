@@ -4,12 +4,12 @@ from django.contrib.auth.models import AbstractUser
 
 class Usuario(AbstractUser):
     
-    nome_completo = models.CharField(max_length=150, verbose_name="Nome")
-    idade = models.IntegerField(verbose_name="Idade")
-    cpf = models.CharField(max_length=15, unique=True, verbose_name="CPF")
+    nome_completo = models.CharField(max_length=150, null=True, verbose_name="Nome")
+    idade = models.IntegerField(verbose_name="Idade",null=True)
+    cpf = models.CharField(max_length=15, unique=True, verbose_name="CPF",null=True)
     data_nascimento = models.DateField(null=True, verbose_name="Data de nascimento")
-    telefone = models.CharField(max_length=15, verbose_name="Telefone")
-    data_criacao = models.DateTimeField(auto_now=True)
+    telefone = models.CharField(max_length=15, verbose_name="Telefone",null=True)
+    data_criacao = models.DateTimeField(auto_now=True,null=True)
     
     class Meta:
         # db_table = "Usuario"

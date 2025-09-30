@@ -25,9 +25,6 @@ class Item(models.Model):
         verbose_name = 'Item'
         verbose_name_plural = 'Items'
     
-
-
-       
         
 class Cardapio(models.Model):
     Categoria = models.ManyToManyField(Categoria)
@@ -46,3 +43,4 @@ class Mesa(models.Model):
         # ordering = [""]
         verbose_name = 'Mesa'
         verbose_name_plural = 'Mesas'
+

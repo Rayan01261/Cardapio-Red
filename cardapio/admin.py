@@ -31,3 +31,5 @@ class CardapioAdmin(admin.ModelAdmin):
 class MesaAdmin(admin.ModelAdmin):
     list_display = ('id', 'ocupada')
     list_filter = ('ocupada',)
+
+
